@@ -9,3 +9,46 @@ input,select,textarea{background:white;border:1px solid #becdda;border-radius:8p
 @media(max-width:800px){.frame,.frame.compact{display:block}.frame aside{position:fixed;left:0;top:0;width:235px;transform:translateX(-105%);transition:transform .15s}.frame aside.open{transform:translateX(0)}.frame.compact aside span{display:inline}.mobile-menu,.scrim{display:block}.scrim{position:fixed;inset:0;border:0;border-radius:0;background:#10283e80;z-index:4}.collapse{display:none}.login{grid-template-columns:1fr}.login-art{min-height:220px;gap:20px}.login-art h1 br{display:none}.art-lines{position:absolute;right:-28px;top:8%;width:40%;opacity:.28}.login-art p{max-width:75%}.login-form{align-items:start;padding:32px 22px}.avatar{display:none}.property{font-size:.93rem}}
 @media(max-width:520px){header{flex-wrap:wrap;gap:8px}.monthpicker{margin-left:auto}.property{max-width:6.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.monthpicker input{width:8.3rem}.kpis,.grid2{gap:10px}.pagehead{align-items:flex-start}.panel,.kpi{padding:16px}.fields label{flex-basis:100%}.actions .primary{flex-grow:1}.login-art{padding:25px}.login{grid-template-rows:auto 1fr}}
 
+
+/* Keep list controls outside the table scrollport. */
+.workspace:has(.table-page) {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.workspace:has(.table-page) > header { flex: none; }
+#content:has(.table-page) {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.table-page, .table-page > .stack {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.table-page .pagehead, .table-page .kpis { flex: none; }
+.panel:has(> .scroll) {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.panel > .scroll {
+  min-height: 0;
+  max-height: 60dvh;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.table-page .panel > .scroll { max-height: none; }
+.panel > .scroll thead th, .panel > .scroll tfoot :is(th,td) {
+  position: sticky;
+  background: white;
+  z-index: 1;
+}
+.panel > .scroll thead th { top: 0; }
+.panel > .scroll tfoot :is(th,td) { bottom: 0; background: #f5f8fb; }
+@media (max-height: 450px) {
+  .panel > .scroll { min-height: 9rem; }
+}

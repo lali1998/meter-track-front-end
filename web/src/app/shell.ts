@@ -2,7 +2,7 @@ import {Component,ChangeDetectionStrategy,inject,signal} from '@angular/core';
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {CdkTrapFocus} from '@angular/cdk/a11y';
 import {Store,firstMonth,monthKey,shiftMonth} from './core';
-const links=[['/dashboard','Áttekintés','▦'],['/entries','Havi rögzítés','✎'],['/history','Előzmények','◷'],['/analytics','Statisztikák','▥'],['/residents','Lakók','♧'],['/tariffs','Díjszabások','≋'],['/data','Import / Export','⇅'],['/settings','Beállítások','⚙']];
+const links=[['/dashboard','Áttekintés','▦'],['/entries','Havi rögzítés','✎'],['/history','Előzmények','◷'],['/analytics','Statisztikák','▥'],['/residents','Lakók','♧'],['/tariffs','Díjszabások','≋'],['/settings','Beállítások','⚙']];
 @Component({imports:[RouterOutlet,RouterLink,RouterLinkActive,CdkTrapFocus],changeDetection:ChangeDetectionStrategy.OnPush,template:`
 <div class="frame" [class.compact]="compact()" (keydown.escape)="drawer.set(false)">
 @if(drawer()){<button class="scrim" aria-label="Menü bezárása" (click)="drawer.set(false)"></button>}
