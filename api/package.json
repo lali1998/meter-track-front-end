@@ -1,0 +1,54 @@
+{
+  "name": "rezsiflow-api",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/api/src/main.js",
+    "start:dev": "ts-node src/main.ts",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/database.ts",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/database.ts",
+    "bootstrap": "ts-node src/bootstrap.ts",
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/platform-express": "^11.1.0",
+    "@nestjs/typeorm": "^11.0.0",
+    "@nestjs/config": "^4.0.0",
+    "typeorm": "~0.3.28",
+    "mysql2": "^3.14.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "class-validator": "^0.14.2",
+    "class-transformer": "^0.5.1",
+    "argon2": "^0.44.0",
+    "helmet": "^8.1.0",
+    "cookie-parser": "^1.4.7",
+    "exceljs": "^4.4.0",
+    "csv-parse": "^6.1.0",
+    "pdfkit": "^0.17.2",
+    "dotenv": "^17.2.0",
+    "zod": "^4.1.0",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/express": "^5.0.0",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/pdfkit": "^0.17.0",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/test"
+    ]
+  }
+}
